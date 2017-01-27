@@ -1,14 +1,28 @@
 # ToDo application
 
-![](http://2.bp.blogspot.com/-vSvB3qOWx8E/UqJ6HzPNnqI/AAAAAAAAAlg/gw9xz9uB36Y/s640/6.png)
+##### Login
 
-This is the code of the tutorials from www.arubystory.com for creating a simple ToDo application with Ruby on Rails.
+User: test@test.com
+Password: password
 
-**You may find the tutorials to the following links:**
-* [**Part One**](http://www.arubystory.com/2013/12/tutorial-creating-simple-todo.html)
-* [**Part Two**](http://www.arubystory.com/2013/12/rails-todo-tutorial-part-two.html)
-* [**Part Three**](http://www.arubystory.com/2013/12/creating-simple-todo-application-with.html)
-* [**Deploying the application to OpenShift**](http://www.arubystory.com/2013/12/tutorial-todo-rails-openshift.html)
+Application is vulnerable to XSS on the main page with the following URL:
+http://127.0.0.1:3000/?%22%3E%3Cscript%3Ealert(1)%3C/script%3E=1
 
+Vulnerable code:
 
-![](http://1.bp.blogspot.com/-NXzY4nuli0g/UrQpgehMmnI/AAAAAAAAAvE/U-YGvUPVbxQ/s640/13.png)
+```
+    .row-fluid
+      .span10.offset1
+        .hero-unit.text-center
+          %h1
+            ToDo
+          %input{:type=>"hidden", :data=>params, :id=>"current_tab"}  
+          %p
+            %a{href: 'http://www.arubystory.com', target: '_blank'}
+              Welcome to the ToDo application
+          .text-center
+```
+
+Code from:
+
+http://www.arubystory.com/2013/12/tutorial-creating-simple-todo.html
