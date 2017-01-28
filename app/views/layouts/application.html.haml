@@ -11,8 +11,8 @@
         .hero-unit.text-center
           %h1
             ToDo
-          %input{:type=>"hidden", :data=>params, :id=>"current_tab"}  
           %input{:type=>"hidden", :data=>params, :id=>"current_tab"}
+          %input{:type=>"hidden", :data=>params[:id], :id=>"current_tab"}
           %p
             %a{href: 'http://www.arubystory.com', target: '_blank'}
               Welcome to the ToDo application
