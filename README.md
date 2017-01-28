@@ -8,6 +8,9 @@ Password: password
 Application is vulnerable to XSS on the main page with the following URL:
 http://127.0.0.1:3000/?%22%3E%3Cscript%3Ealert(1)%3C/script%3E=1
 
+Example of proper encoding:
+http://127.0.0.1:3000/?id=%3Cscript%3Ealert(1)%3C/script%3E
+
 Vulnerable code:
 
 ```
