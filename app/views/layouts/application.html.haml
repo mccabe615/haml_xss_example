@@ -11,7 +11,9 @@
         .hero-unit.text-center
           %h1
             ToDo
+-# not properly encoded
           %input{:type=>"hidden", :data=>params, :id=>"current_tab"}
+-# properly encoded
           %input{:type=>"hidden", :data=>params[:id], :id=>"current_tab"}
           %p
             %a{href: 'http://www.arubystory.com', target: '_blank'}
